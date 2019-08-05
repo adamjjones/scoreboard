@@ -67,3 +67,17 @@ const subTeamTwoScore = () => {
 document
   .querySelector('.team-2-subtract-1-button')
   .addEventListener('click', subTeamTwoScore)
+
+const addInning = () => {
+  inning = document.querySelector('#inning-num').textContent
+  inning = parseInt(inning) + 1
+  document.querySelector('#inning-num').textContent = inning
+}
+document.querySelector('#add-inning').addEventListener('click', addInning)
+
+const subInning = () => {
+  inning = document.querySelector('#inning-num').textContent
+  inning = parseInt(inning) - 1
+  document.querySelector('#inning-num').textContent = inning
+}
+document.querySelector('#sub-inning').addEventListener('click', subInning)
