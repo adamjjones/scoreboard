@@ -1,3 +1,5 @@
+'use strict'
+
 const main = () => {
   if (document.querySelector('h1.hello-world')) {
     document.querySelector('h1.hello-world').textContent = 'Hello, World!'
@@ -7,23 +9,24 @@ const main = () => {
 document.addEventListener('DOMContentLoaded', main)
 
 const updateName = () => {
-  //Get current name of team from a variable
+  // Get current name of team from a variable
   const teamName = document.querySelector('.team-1-input').value
-  //Display new name
+  // Display new name
   document.querySelector('.team-1-name').textContent = teamName
 }
+
 document
   .querySelector('.update-team-1-name')
   .addEventListener('click', updateName)
 
 const addTeamOneScore = () => {
-  //Save score to a variable
+  // Save score to a variable
   let score = document.querySelector('.team-1-score').textContent
   // parseInt(score).value
   console.log(score)
-  //Add 1 to score variable
+  // Add 1 to score variable
   score = parseInt(score) + 1
-  //Display updated score
+  // Display updated score
   document.querySelector('.team-1-score').textContent = score
 }
 document
@@ -31,11 +34,11 @@ document
   .addEventListener('click', addTeamOneScore)
 
 const subTeamOneScore = () => {
-  //Get value of team one score
+  // Get value of team one score
   let score = document.querySelector('.team-1-score').textContent
-  //Subtract 1 from score
+  // Subtract 1 from score
   score = parseInt(score) - 1
-  //Display updated score
+  // Display updated score
   document.querySelector('.team-1-score').textContent = score
 }
 document
@@ -51,7 +54,7 @@ document
   .addEventListener('click', updateName2)
 
 const addTeamTwoScore = () => {
-  score = document.querySelector('.team-2-score').textContent
+  let score = document.querySelector('.team-2-score').textContent
   score = parseInt(score) + 1
   document.querySelector('.team-2-score').textContent = score
 }
@@ -60,7 +63,7 @@ document
   .addEventListener('click', addTeamTwoScore)
 
 const subTeamTwoScore = () => {
-  score = document.querySelector('.team-2-score').textContent
+  let score = document.querySelector('.team-2-score').textContent
   score = parseInt(score) - 1
   document.querySelector('.team-2-score').textContent = score
 }
@@ -69,14 +72,14 @@ document
   .addEventListener('click', subTeamTwoScore)
 
 const addInning = () => {
-  inning = document.querySelector('#inning-num').textContent
+  let inning = document.querySelector('#inning-num').textContent
   inning = parseInt(inning) + 1
   document.querySelector('#inning-num').textContent = inning
 }
 document.querySelector('#add-inning').addEventListener('click', addInning)
 
 const subInning = () => {
-  inning = document.querySelector('#inning-num').textContent
+  let inning = document.querySelector('#inning-num').textContent
   inning = parseInt(inning) - 1
   document.querySelector('#inning-num').textContent = inning
 }
