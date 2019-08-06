@@ -8,6 +8,8 @@ const main = () => {
 
 document.addEventListener('DOMContentLoaded', main)
 
+let score = 0
+
 const updateName = () => {
   // Get current name of team from a variable
   const teamName = document.querySelector('.team-1-input').value
@@ -15,72 +17,134 @@ const updateName = () => {
   document.querySelector('.team-1-name').textContent = teamName
 }
 
-document
-  .querySelector('.update-team-1-name')
-  .addEventListener('click', updateName)
-
 const addTeamOneScore = () => {
   // Save score to a variable
   let score = document.querySelector('.team-1-score').textContent
-  // parseInt(score).value
-  console.log(score)
   // Add 1 to score variable
   score = parseInt(score) + 1
+  if (score >= 21) {
+    score = document.querySelector('.team-1-add-1-button').classList.add('hide')
+    score = document
+      .querySelector('.team-1-subtract-1-button')
+      .classList.add('hide')
+    score = 21
+    document.querySelector('.message-team-1').textContent = 'You Win!'
+  } else {
+    score = score
+  }
   // Display updated score
   document.querySelector('.team-1-score').textContent = score
 }
-document
-  .querySelector('.team-1-add-1-button')
-  .addEventListener('click', addTeamOneScore)
 
 const subTeamOneScore = () => {
   // Get value of team one score
-  let score = document.querySelector('.team-1-score').textContent
+  score = document.querySelector('.team-1-score').textContent
   // Subtract 1 from score
   score = parseInt(score) - 1
+  if (score < 0) {
+    score = 0
+  } else {
+    score = score
+    if ((score = 21)) {
+      document.querySelector('.message-team-1').textContent = 'You Win!'
+    } else {
+      score = score
+    }
+  }
   // Display updated score
   document.querySelector('.team-1-score').textContent = score
 }
-document
-  .querySelector('.team-1-subtract-1-button')
-  .addEventListener('click', subTeamOneScore)
 
 const updateName2 = () => {
   const teamName2 = document.querySelector('.team-2-input').value
   document.querySelector('.team-2-name').textContent = teamName2
 }
-document
-  .querySelector('.update-team-2-name')
-  .addEventListener('click', updateName2)
 
 const addTeamTwoScore = () => {
-  let score = document.querySelector('.team-2-score').textContent
+  score = document.querySelector('.team-2-score').textContent
   score = parseInt(score) + 1
+  if (score >= 21) {
+    score = document.querySelector('.team-2-add-1-button').classList.add('hide')
+    score = document
+      .querySelector('.team-2-subtract-1-button')
+      .classList.add('hide')
+    score = 21
+    document.querySelector('.message-team-2').textContent = 'You Win!'
+  } else {
+    score = score
+  }
   document.querySelector('.team-2-score').textContent = score
 }
-document
-  .querySelector('.team-2-add-1-button')
-  .addEventListener('click', addTeamTwoScore)
 
 const subTeamTwoScore = () => {
-  let score = document.querySelector('.team-2-score').textContent
+  score = document.querySelector('.team-2-score').textContent
   score = parseInt(score) - 1
+  if (score < 0) {
+    score = 0
+  } else {
+    score = score
+  }
   document.querySelector('.team-2-score').textContent = score
 }
-document
-  .querySelector('.team-2-subtract-1-button')
-  .addEventListener('click', subTeamTwoScore)
 
 const addInning = () => {
   let inning = document.querySelector('#inning-num').textContent
   inning = parseInt(inning) + 1
   document.querySelector('#inning-num').textContent = inning
 }
-document.querySelector('#add-inning').addEventListener('click', addInning)
 
 const subInning = () => {
   let inning = document.querySelector('#inning-num').textContent
   inning = parseInt(inning) - 1
+  if (inning < 0) {
+    inning = 0
+  } else {
+    inning = inning
+  }
   document.querySelector('#inning-num').textContent = inning
 }
+
+const reset = () => {
+  score = document.querySelector('.team-1-score').textContent = 0
+  score = document.querySelector('.team-2-score').textContent = 0
+  document.querySelector('.team-1-add-1-button').classList.remove('hide')
+  score = document
+    .querySelector('.team-1-subtract-1-button')
+    .classList.remove('hide')
+  score = document
+    .querySelector('.team-2-add-1-button')
+    .classList.remove('hide')
+  score = document
+    .querySelector('.team-2-subtract-1-button')
+    .classList.remove('hide')
+}
+
+document
+  .querySelector('.update-team-1-name')
+  .addEventListener('click', updateName)
+
+document
+  .querySelector('.team-1-add-1-button')
+  .addEventListener('click', addTeamOneScore)
+
+document
+  .querySelector('.team-1-subtract-1-button')
+  .addEventListener('click', subTeamOneScore)
+
+document
+  .querySelector('.update-team-2-name')
+  .addEventListener('click', updateName2)
+
+document
+  .querySelector('.team-2-add-1-button')
+  .addEventListener('click', addTeamTwoScore)
+
+document
+  .querySelector('.team-2-subtract-1-button')
+  .addEventListener('click', subTeamTwoScore)
+
+document.querySelector('#add-inning').addEventListener('click', addInning)
+
 document.querySelector('#sub-inning').addEventListener('click', subInning)
+
+document.querySelector('.reset').addEventListener('click', reset)
