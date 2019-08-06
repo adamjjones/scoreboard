@@ -107,7 +107,9 @@ const subInning = () => {
 const reset = () => {
   score = document.querySelector('.team-1-score').textContent = 0
   score = document.querySelector('.team-2-score').textContent = 0
-  document.querySelector('.team-1-add-1-button').classList.remove('hide')
+  score = document
+    .querySelector('.team-1-add-1-button')
+    .classList.remove('hide')
   score = document
     .querySelector('.team-1-subtract-1-button')
     .classList.remove('hide')
@@ -117,6 +119,13 @@ const reset = () => {
   score = document
     .querySelector('.team-2-subtract-1-button')
     .classList.remove('hide')
+  document.querySelector('.team-1-name').textContent = 'Team 1'
+  document.querySelector('.team-2-name').textContent = 'Team 2'
+  document.querySelector('.team-1-input').value = ''
+  document.querySelector('.team-2-input').value = ''
+  document.querySelector('.message-team-1').remove()
+  document.querySelector('.message-team-2').remove()
+  document.querySelector('#inning-num').textContent = 0
 }
 
 document
