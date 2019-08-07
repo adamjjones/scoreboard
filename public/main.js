@@ -45,15 +45,10 @@ const subTeamOneScore = () => {
     score = 0
   } else {
     score = score
-    if ((score = 21)) {
-      document.querySelector('.message-team-1').textContent = 'You Win!'
-    } else {
-      score = score
-    }
   }
-  // Display updated score
-  document.querySelector('.team-1-score').textContent = score
 }
+// Display updated score
+document.querySelector('.team-1-score').textContent = score
 
 const updateName2 = () => {
   const teamName2 = document.querySelector('.team-2-input').value

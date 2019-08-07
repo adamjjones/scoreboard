@@ -106,6 +106,13 @@ input {
   display: none;
 }
 
+.team-1-won {
+  border: solid 5px red;
+}
+/* 
+.team-2-won {
+} */
+
 /* @media (min-height: 500px) and (max-height: 700px) {
   .button {
     display: flex;
@@ -121,4 +128,10 @@ input {
   #counter {
     margin-top: 50px;
   }
+}
+
+.red-text {
+  color: red;
+  font-weight: bold;
+  font-size: 20pt;
 }
